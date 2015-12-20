@@ -35,7 +35,7 @@ var Skill = React.createClass({
   },
 
   levelCanBeChanged(action, limit) {
-    return action === 'up' && limit < 2 || action === 'down &&' limit > 0;
+    return action === 'up' && limit < 2 || action === 'down' && limit > 0;
   },
 
   updatedSkill(action, index) {

@@ -35,7 +35,7 @@ var Body = React.createClass({
       url: `/api/v1/skills/${skill.id}`,
       type: 'PUT',
       data: { skill: skill },
-      success: () => {
+      success: (skill) => {
         console.log('you did it');
         this.updateSkills(skill);
       }
