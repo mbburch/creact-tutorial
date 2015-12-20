@@ -25,8 +25,8 @@ var Skill = React.createClass({
   },
 
   handleLevelChange(action) {
-    let levels = ['bad', 'halfbad', 'fantastic'];
-    let level  = levels.indexOf(this.props.skill.level);
+    let levels  = ['bad', 'halfbad', 'fantastic'];
+    let level   = levels.indexOf(this.props.skill.level);
 
     if (this.levelCanBeChanged(action, level)) {
       let skill = this.updatedSkill()
@@ -35,7 +35,7 @@ var Skill = React.createClass({
   },
 
   levelCanBeChanged(action, limit) {
-    return action === 'up' && limit < 2 || action === 'down' && limit > 0;
+    return action === 'up' && limit < 2 ||  action === 'down' && limit > 0;
   },
 
   updatedSkill(action, index) {
@@ -43,13 +43,11 @@ var Skill = React.createClass({
     let name     = this.props.skill.name;
     let details  = this.props.skill.details;
 
-    return {id: id, name: name, details: details, level: getNewLevel}
-  },
-
-  getNewLevel(action, index) {
     let levels   = ['bad', 'halfbad', 'fantastic'];
-    let change   = action === 'up' ? 1 : -1;
-    return action ? levels[index + change] : this.props.skill.level;
+    let change   = action === 'up' ? 1 : - 1;
+    let newLevel = action ? levels[index + change] : this.props.skill.level;
+
+    return {id: id, name: name, details: details, level: newLevel}
   },
 
   render() {
